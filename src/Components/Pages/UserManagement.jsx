@@ -39,7 +39,7 @@ const UserManagement = () => {
 						<button className='px-1 py-1 bg-blue-500 text-white rounded' onClick={() => dispatch(setSort("id"))}>Sort by Id{sortField === "id" ? (sortOrder === "asc" ? <FaSortUp /> : <FaSortDown />) : ""}</button>
 						<button className='px-1 py-1 bg-blue-500 text-white rounded' onClick={() => dispatch(setSort("firstName"))}>Sort by Name {sortField === "firstName" ? (setSort === "asc" ? <FaSortUp /> : <FaSortDown />) : ""}</button>
 						</div>
-					<table className='w-full border-collapse border border-gray-200 max-xs:text-xs'>
+					<table className='w-full border-collapse border border-gray-200 max-xs:text-sm'>
 						<thead>
 							<tr className='bg-gray-800'>
 								<th className='border p-1'>ID</th>
