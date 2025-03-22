@@ -27,7 +27,7 @@ const UserManagement = () => {
 	const totalPages = Math.ceil(sortedUsers.length / itemsPerPage);
 
 	return (
-			<div className='p-6 mt-16 md:ml-64 max-xs:mt-12'>
+			<div className='p-6 mt-16 md:ml-64'>
 				<h2 className='text-2xl font-bold mb-4 max-xs:text-xl'>Users</h2>
 				<input className='max-xs:p-1 p-2 border rounded w-full mb-4' type='text' placeholder='Search Users...' value={searchQuery} onChange={(e) => dispatch(setSearchQuery(e.target.value))} />
 
