@@ -7,6 +7,24 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers",
 		return data.users;
 	});
 
+	//Delete User 
+	export const deleteUsers = createAsyncThunk("users/deleteUser", 
+		async (userId) => {
+			 await fetch(`https://dummyjson.com/users/${userId}`);
+			return userId;
+		});
+
+		//Edit User
+		export const editUsers = createAsyncThunk("users/editUser", 
+			async ({id, updatedData}) => {
+				const res =  await fetch(`https://dummyjson.com/users/${id}`,{
+					method: "PUT",
+					headers: {"Content-Type": "application/json"},
+					body: JSON.stringify(updatedData),
+				});
+				return res.json();
+			});
+
 const userSlice = createSlice({
 	name: "users",
 	initialState: {
@@ -40,6 +58,14 @@ const userSlice = createSlice({
 		}).addCase(fetchUsers.rejected, (state, action) => {
 			state.status = "failed";
 			state.error = action.error.message;
+		}).addCase(deleteUsers.fulfilled, (state, action) => {
+			state.list = state.list.filter((user) => user.id !== action.payload);
+		}).addCase(editUsers.fulfilled, (state, action) => {
+			const index = state.list.findIndex((user) => user.id === action.payload.id);
+			if (index !== -1) {
+				state.list[index] = 
+				{...state.list[index], ...action.payload}
+			}
 		});
 	}
 });

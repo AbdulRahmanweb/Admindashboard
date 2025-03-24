@@ -17,7 +17,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className='bg-gray-900 shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full'>
+		<div className='bg-gray-900 shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-20'>
 			<h2 className=' ml-8 text-xl font-semibold text-white md:ml-64'>Dashboard</h2>
 			<div className='relative flex items-center gap-4'>
 				<span className='text-white-700'>Admin</span>
